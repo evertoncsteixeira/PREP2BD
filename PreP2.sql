@@ -125,9 +125,9 @@ INNER JOIN Livros L ON (L.Cod_Autor = A.Cod)
 GROUP BY A.Nome
 HAVING COUNT(L.Cod) >= 2;
 
-SELECT C.Nome
+SELECT C.Nome,L.Nome AS Livro
 FROM Clientes C 
 INNER JOIN Emprestimo E ON (E.Cod_CLi = C.Cod)
 INNER JOIN Livros L ON (L.Cod = E.Cod_Livro)
 WHERE DATEDIFF(DAY,E.Dt_Emprestimo,'2012-05-18 00:00:00.000') >= 7
-GROUP BY C.Nome
+
